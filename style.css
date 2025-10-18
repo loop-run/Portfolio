@@ -1,0 +1,711 @@
+/* ================= BASE STYLES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ================= THEME COLORS ================= */
+:root {
+  --bg-color: #000814;
+  --text-color: #00ffff;
+  --secondary-color: #99ffff;
+  --nav-bg: #000814;
+  --link-color: white;
+}
+
+[data-theme="#f2f1e7"] {
+  --bg-color: #f2f1e7;
+  --text-color: #000814;
+  --secondary-color: #004d66;
+  --nav-bg: #e0f7fa;
+  --link-color: #000814;
+}
+/* body background */
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ================= CANVAS BACKGROUND ================= */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: var(--nav-bg);
+  border-bottom: 2px solid var(--text-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Double underline animation */
+.nav-links a::after,
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #00ffff, #004d66);
+  transition: width 0.4s ease;
+}
+
+.nav-links a::after {
+  bottom: 0;
+}
+.nav-links a::before {
+  bottom: -5px;
+}
+
+.nav-links a:hover::after,
+.nav-links a:hover::before,
+.nav-links a.active::after,
+.nav-links a.active::before {
+  width: 100%;
+}
+
+/* Hover glow */
+.nav-links a:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px var(--text-color);
+}
+
+/*  SEARCH BAR */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+.nav-search input,
+.nav-search button {
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95rem;
+  box-shadow: 0 0 4px var(--text-color);
+}
+
+.nav-search input {
+  background: white;
+  color: black;
+}
+/* NAVBAR FIX FOR TABLETS*/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 12px 25px;
+  background-color: var(--nav-bg);
+  border-bottom: 2px solid var(--text-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after,
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #00ffff, #004d66);
+  transition: width 0.4s ease;
+}
+
+.nav-links a::after {
+  bottom: 0; /* ✅ keeps both lines tight to text */
+}
+.nav-links a::before {
+  bottom: -3px; /* ✅ closer under the text, not detached */
+}
+
+/* ================= SEARCH & BUTTON FIX ================= */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* ✅ allow wrapping on iPads */
+  margin-top: 6px; /* ✅ gives vertical breathing room */
+}
+
+.nav-search input,
+.nav-search button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  box-shadow: 0 0 4px var(--text-color);
+}
+
+.nav-search input {
+  background: white;
+  color: black;
+  min-width: 130px; /* ✅ prevents input from shrinking too much */
+}
+
+.nav-search button {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.nav-search button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* For tap hover effects on mobile */
+.card.hovered,
+.box.hovered,
+.footer-links a.hovered {
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px var(--text-color);
+}
+.nav-links a.hovered {
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px var(--text-color);
+}
+
+/* MOBILE MENU TOGGLE switch */
+.menu-toggle {
+  display: none;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* THEME TOGGLE  */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.theme-toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.theme-toggle input:checked + .slider {
+  background-color: var(--text-color);
+}
+
+.theme-toggle input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+/*  MAIN SECTION  */
+.myself {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 100px 20px 40px 20px;
+  text-align: left;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 650px;
+}
+
+.myself h1 {
+  font-size: clamp(2rem, 5vw, 4.3rem);
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  text-shadow: 0 0 10px var(--text-color);
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+.myself h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  color: rgb(234, 167, 44);
+  animation: fadeIn 3s ease forwards;
+  opacity: 0;
+  animation-delay: 1s;
+  max-width: 500px;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* PROFILE PHOTO */
+.myself .photo img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px var(--text-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.myself .photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--text-color);
+}
+
+/* ABOUT */
+.about {
+  padding: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.about h2 {
+  color: var(--text-color);
+  text-shadow: 0 0 10px var(--text-color);
+  font-size: 2.4rem;
+}
+
+.about p {
+  margin-top: 15px;
+  line-height: 30px;
+  color: rgb(234, 167, 44);
+}
+
+.box {
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 12px;
+  padding: 30px;
+  cursor: pointer;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 0 10px var(--text-color);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+/*SKILLS  */
+.skills {
+  padding: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.skills h2 {
+  color: var(--text-color);
+  text-shadow: 0 0 10px var(--text-color);
+  font-size: 2.4rem;
+  margin-top: 40px;
+}
+
+.card p {
+  color: rgb(234, 167, 44);
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.card {
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  padding: 20px;
+  width: 260px;
+  margin: 20px;
+  box-shadow: 0 0 10px var(--text-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px var(--text-color);
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* CAREER SECTION  cards */
+.learning-paths {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.learning-paths h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: rgb(234, 167, 44);
+  text-shadow: 0 0 10px rgb(234, 167, 44);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+/*THANK YOU BOX*/
+.thankyou-box {
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 12px;
+  padding: 11px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  color: var(--text-color);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thankyou-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 18px var(--text-color);
+}
+
+.thankyou-box p {
+  font-size: 1.1em;
+  color: rgb(234, 167, 44);
+}
+
+.thankyou-box a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.thankyou-box a:hover {
+  color: darkred;
+  text-decoration: underline;
+}
+
+/* FOOTER */
+
+#footer {
+  text-align: center;
+  color: var(--text-color);
+  margin-top: 90px;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px var(--text-color);
+}
+
+.site-footer {
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  border-top: 4px solid var(--text-color);
+  color: var(--text-color);
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 60px;
+  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.2);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-content p {
+  color: rgb(234, 167, 44);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 8px var(--text-color);
+  transform: scale(1.1);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--text-color);
+    margin-bottom: 8px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    background-color: var(--nav-bg);
+    padding: 15px 0;
+    border-top: 2px solid var(--text-color);
+    text-align: center;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-search button,
+  .nav-search input {
+    width: 90%;
+    margin-bottom: 8px;
+  }
+
+  .myself {
+    flex-direction: column;
+    padding-top: 200px;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .myself h1 {
+    font-size: 2.3rem;
+  }
+
+  .myself h3 {
+    font-size: 1.1rem;
+  }
+
+  .myself .photo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .thankyou-box {
+    width: 90%;
+  }
+}
+
+/* TABLET MEDIA FIX */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem; /* ✅ smaller font for iPads */
+    padding: 3px 0;
+  }
+
+  .nav-search {
+    gap: 8px;
+  }
+
+  .nav-search input {
+    width: 150px;
+  }
+
+  .nav-search button {
+    padding: 6px 12px;
+  }
+}
+
+/* Extra Small Devices (≤ 480px) */
+@media (max-width: 480px) {
+  .myself {
+    padding-top: 180px;
+  }
+
+  .myself h1 {
+    font-size: 1.9rem;
+  }
+
+  .myself h3 {
+    font-size: 1rem;
+  }
+
+  .photo img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .about,
+  .skills {
+    padding: 25px 15px;
+  }
+
+  .box,
+  .thankyou-box {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .card {
+    width: 95%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Large Screens (≥ 1200px) */
+@media (min-width: 1200px) {
+  .myself {
+    padding-top: 160px;
+    gap: 50px;
+  }
+
+  .myself h1 {
+    font-size: 4.8rem;
+  }
+
+  .myself h3 {
+    font-size: 2rem;
+  }
+
+  .photo img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .card-container {
+    gap: 40px;
+  }
+}
+/* end of css */

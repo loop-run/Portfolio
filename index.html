@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Background Matrix Canvas -->
+    <canvas id="matrix"></canvas>
+
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <!-- Hamburger icon for mobile -->
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Left side: Navigation links -->
+        <div class="nav-links" id="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#career">Career Paths</a>
+          <a href="#contacts">Contacts</a>
+        </div>
+
+        <!-- Right side: Search -->
+        <div class="nav-search">
+          <button>Search</button>
+          <input type="text" placeholder="Search..Home" />
+        </div>
+
+        <!-- ✅ Theme Toggle moved outside nav-search so visible on mobile -->
+        <label class="theme-toggle">
+          <input type="checkbox" id="themeSwitcher" />
+          <span class="slider"></span>
+        </label>
+      </nav>
+    </header>
+
+    <br />
+
+    <!-- Main content -->
+    <main>
+      <!-- Home Section -->
+      <section id="home">
+        <div class="myself">
+          <div class="photo">
+            <img src="pictures/rafiya.jpg.3.jpg" alt="Rafiya's Photo" />
+          </div>
+
+          <div class="text">
+            <h1>Hi,I'm Rafiya👋</h1>
+            <h3>A Computer Science Student and a web developer</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="box">
+          <p>
+            I'm passionate about technology and love exploring how things work
+            behind the scenes. Every line of code feels like a step forward in a
+            journey that’s just getting started. I'm still learning and growing
+            — experimenting with different tools, building small projects, and
+            diving deep into web development. I enjoy turning curiosity into
+            code and challenges into opportunities to improve.
+          </p>
+          <p>
+            The more I learn, the more excited I get about what's ahead in this
+            ever-evolving field.
+          </p>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="card-container">
+          <div class="card">
+            <h3>Technical Skills</h3>
+            <p>
+              Good at Google Sheets, Docs, and Forms for data management and
+              automation.
+            </p>
+            <p>
+              Experienced in building and editing websites using HTML, CSS, and
+              JavaScript.
+            </p>
+            <p>
+              Skilled in Canva for creating professional and creative graphic
+              designs.
+            </p>
+            <p>
+              Basic knowledge of computer networking concepts and protocols.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Programming Languages</h3>
+            <p>Currently learning Python for scripting and automation.</p>
+            <p>Studying C++ to understand object-oriented programming.</p>
+            <p>Exploring C language fundamentals and problem-solving.</p>
+            <p>
+              Practicing coding challenges to improve logic and syntax skills.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Problem Solving & Self-Learning</h3>
+            <p>I like figuring things out by trying and learning.</p>
+            <p>I can learn new tools and tech on my own.</p>
+            <p>I try to fix small tech problems myself.</p>
+            <p>I'm curious about how things work and enjoy exploring.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Career Paths Section -->
+      <section id="career" class="learning-paths">
+        <h2>Learning Paths & Possible Careers</h2>
+        <div class="cards-container">
+          <div class="card">
+            <h3>Web Development</h3>
+            <p><strong>Learn:</strong> HTML, CSS, JavaScript, Frameworks</p>
+            <p><strong>Career:</strong> Web Developer / Frontend Developer</p>
+          </div>
+
+          <div class="card">
+            <h3>Backend & APIs</h3>
+            <p><strong>Learn:</strong> Python, Node.js, Databases</p>
+            <p><strong>Career:</strong> Backend Developer / API Engineer</p>
+          </div>
+
+          <div class="card">
+            <h3>Full Stack Development</h3>
+            <p><strong>Learn:</strong> Frontend + Backend + Databases</p>
+            <p><strong>Career:</strong> Full Stack Engineer</p>
+          </div>
+
+          <div class="card">
+            <h3>Cybersecurity</h3>
+            <p>
+              <strong>Learn:</strong> Network Security, Ethical Hacking,
+              Cryptography
+            </p>
+            <p>
+              <strong>Career:</strong> Cybersecurity Specialist / Ethical Hacker
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Linux & Scripting</h3>
+            <p>
+              <strong>Learn:</strong> Linux OS, Python, Bash Scripting,
+              JavaScript
+            </p>
+            <p>
+              <strong>Career:</strong> DevOps Engineer / Automation Engineer
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Bug Hunting</h3>
+            <p>
+              <strong>Learn:</strong> Security Testing, Vulnerability Analysis,
+              Reporting
+            </p>
+            <p><strong>Career:</strong> Bug Hunter / Security Researcher</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <br />
+
+    <!-- Footer Section -->
+    <h3 id="footer">contacts</h3>
+    <footer id="contacts" class="site-footer">
+      <div class="thankyou-box box">
+        <h2>Thank you for visiting my website! 😊</h2>
+        <p>
+          I truly appreciate your time and interest. I hope you found something
+          helpful here.
+        </p>
+        <p>
+          If you have any feedback, questions, or just want to say hi, feel free
+          to <a href="mailto:rafiyaf735@email.com">reach out</a>!
+        </p>
+        <p>Come back soon — there’s always something new around the corner.</p>
+        <p>— RAFIYA</p>
+      </div>
+
+      <div class="footer-content">
+        <p>Designed & Built by Rafiya © 2025</p>
+        <div class="footer-links">
+          <a href="https://github.com/loop-run" target="_blank">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="mailto:rafiyaf735@gmail.com">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+          <a href="https://wa.me/8919586506" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="https://www.instagram.com/rafiya_fath21" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
