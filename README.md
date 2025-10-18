@@ -1,4 +1,4 @@
-# Rafiya Fatima - Portfolio
+# Rafiya - Portfolio
 
 Hi! 👋 I’m Rafiya,an aspiring web developer.  
 This is my first portfolio website showcasing my projects and skills.
