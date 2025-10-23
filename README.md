@@ -1,6 +1,6 @@
 #  - Portfolio
 
-Hi! 👋 I’m Rafiya,an aspiring web developer.  
+Hi! 👋 
 This is my first portfolio website showcasing my projects and skills.
 
 ## 🌐 Live Site
